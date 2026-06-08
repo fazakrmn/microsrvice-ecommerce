@@ -11,4 +11,11 @@ app.get("/users", (req, res) => {
     res.json({ service: "akun-service", data: [{ id: 1, name: "John Doe", email: "john.doe@example.com" }] });
 });
 
+<<<<<<< HEAD
+=======
+app.get("/accounts", (req, res) => {
+    res.json({ service: "akun-service", data: [{ id: 1, name: "John Doe", email: "john.doe@example.com" }] });
+});
+
+>>>>>>> d768543 (second commit)
 app.listen(PORT, () => { console.log(`Akun Service berjalan pada port ${PORT}`); });
