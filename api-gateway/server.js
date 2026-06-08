@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-<<<<<<< HEAD
+
 app.use(express.json());
 
 app.get("/health", (req, res) => {
@@ -15,7 +15,7 @@ app.get("/cart", (req, res) => {
 app.listen(PORT, () => { console.log(`Keranjang Service berjalan pada port ${PORT}`); });
 
 // Memastikan URL mengarah ke nama kontainer docker
-=======
+
 
 app.use(express.json());
 
@@ -30,21 +30,17 @@ app.use((req, res, next) => {
     next();
 });
 
->>>>>>> d768543 (second commit)
 const PRODUCT_SERVICE_URL = process.env.PRODUCT_SERVICE_URL || "http://produk-service:3001";
 const ORDER_SERVICE_URL = process.env.ORDER_SERVICE_URL || "http://pesanan-service:3002";
 const ACCOUNT_SERVICE_URL = process.env.ACCOUNT_SERVICE_URL || "http://akun-service:3003";
 const CART_SERVICE_URL = process.env.CART_SERVICE_URL || "http://keranjang-service:3004";
 const PAYMENT_SERVICE_URL = process.env.PAYMENT_SERVICE_URL || "http://payment-service:3005";
 
-<<<<<<< HEAD
-=======
 // Health check
 app.get("/health", (req, res) => {
     res.json({ service: "api-gateway", status: "running" });
 });
 
->>>>>>> d768543 (second commit)
 // Rute untuk Produk
 app.get("/products", async (req, res) => {
     try {
@@ -53,8 +49,6 @@ app.get("/products", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-<<<<<<< HEAD
-=======
 app.post("/products", async (req, res) => {
     try {
         const response = await fetch(`${PRODUCT_SERVICE_URL}/products`, {
@@ -66,7 +60,6 @@ app.post("/products", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
->>>>>>> d768543 (second commit)
 // Rute untuk Akun
 app.get("/accounts", async (req, res) => {
     try {
@@ -83,8 +76,6 @@ app.get("/orders", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-<<<<<<< HEAD
-=======
 app.post("/orders", async (req, res) => {
     try {
         const response = await fetch(`${ORDER_SERVICE_URL}/orders`, {
@@ -96,7 +87,6 @@ app.post("/orders", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
->>>>>>> d768543 (second commit)
 // Rute untuk Keranjang
 app.get("/cart", async (req, res) => {
     try {
@@ -105,8 +95,6 @@ app.get("/cart", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-<<<<<<< HEAD
-=======
 app.post("/cart", async (req, res) => {
     try {
         const response = await fetch(`${CART_SERVICE_URL}/cart`, {
@@ -127,15 +115,12 @@ app.delete("/cart/:id", async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
->>>>>>> d768543 (second commit)
 // Rute untuk Pembayaran
 app.get("/payments", async (req, res) => {
     try {
         const response = await fetch(`${PAYMENT_SERVICE_URL}/payments`);
         res.json(await response.json());
     } catch (e) { res.status(500).json({ error: e.message }); }
-<<<<<<< HEAD
-=======
 });
 
 app.post("/payments", async (req, res) => {
@@ -151,5 +136,4 @@ app.post("/payments", async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`API Gateway berjalan pada port ${PORT}`);
->>>>>>> d768543 (second commit)
 });
